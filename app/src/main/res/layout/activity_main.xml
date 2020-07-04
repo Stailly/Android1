@@ -23,17 +23,35 @@
         <TextView
             android:id="@+id/city"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/standart_height"
             android:layout_gravity="center"
             android:text="@string/city"
             android:textSize="@dimen/text_large" />
 
         <TextView
-            android:id="@+id/temperature"
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/standart_height"
+        android:layout_gravity="center"
+        android:text="@string/temp"
+        android:textSize="@dimen/text_small" />
+
+        <TextView
+            android:id="@+id/pressure_value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/standart_height"
             android:layout_gravity="center"
-            android:text="@string/temp"
+            android:visibility="gone"
+            android:text="@string/pressure_value"
+            android:textSize="@dimen/text_small" />
+
+        <TextView
+            android:id="@+id/wind_value"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/standart_height"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:text="@string/wind_speed_value"
             android:textSize="@dimen/text_small" />
     </LinearLayout>
 </FrameLayout>

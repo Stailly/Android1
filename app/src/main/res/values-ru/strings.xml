@@ -4,4 +4,10 @@
     <string name="welcome">Ваш город</string>
     <string name="city">Москва</string>
     <string name="temp">+22 C</string>
+    <string name="choose_city">Введите название города</string>
+    <string name="button_add">Ввести</string>
+    <string name="show_pressure">Показывать давление</string>
+    <string name="show_wind_speed">Показывать скорость ветра</string>
+    <string name="pressure_value">Давление 760 мм рт. ст.</string>
+    <string name="wind_speed_value">Скорость ветра 3 м/с</string>
 </resources>

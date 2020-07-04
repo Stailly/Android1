@@ -3,4 +3,10 @@
     <string name="welcome">Your city</string>
     <string name="city">Moscow</string>
     <string name="temp">+22 C</string>
+    <string name="choose_city">Enter the city</string>
+    <string name="button_add">Enter</string>
+    <string name="show_pressure">Show pressure</string>
+    <string name="show_wind_speed">Show wind speed</string>
+    <string name="pressure_value">Pressure 760 mm HG</string>
+    <string name="wind_speed_value">Wind speed 3 m/s</string>
 </resources>
