@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#006633"
+    android:orientation="vertical"
+    tools:context=".CitiesActivity">
+
+    <EditText
+        android:id="@+id/enter_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/choose_city"
+        android:textSize="@dimen/text_large" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@android:color/darker_gray"
+        android:text="@string/button_add"
+        android:textSize="@dimen/text_small" />
+
+    <Switch
+        android:id="@+id/showPressure"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/show_pressure"
+        android:textSize="@dimen/text_small" />
+
+    <Switch
+        android:id="@+id/showWind"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/show_wind_speed"
+        android:textSize="@dimen/text_small" />
+</LinearLayout>
