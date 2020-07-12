@@ -9,4 +9,5 @@
     <string name="show_wind_speed">Show wind speed</string>
     <string name="pressure_value">Pressure 760 mm HG</string>
     <string name="wind_speed_value">Wind speed 3 m/s</string>
+    <string name="home_page">Home page</string>
 </resources>

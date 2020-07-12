@@ -2,6 +2,7 @@ package com.example.android1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -24,5 +25,14 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getExtras().getBoolean("Wind")) {
             findViewById(R.id.wind_value).setVisibility(View.VISIBLE);
         }
+        findViewById(R.id.home_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CitiesActivity.class);
+                Bundle bundle = new Bundle();
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -54,4 +54,11 @@
             android:text="@string/wind_speed_value"
             android:textSize="@dimen/text_small" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:text="@string/home_page" />
 </FrameLayout>
