@@ -11,4 +11,5 @@
     <string name="pressure_value">Давление 760 мм рт. ст.</string>
     <string name="wind_speed_value">Скорость ветра 3 м/с</string>
     <string name="home_page">Основная страница</string>
+    <string name="weather_on_gismeteo">Погода на Gismeteo</string>
 </resources>
