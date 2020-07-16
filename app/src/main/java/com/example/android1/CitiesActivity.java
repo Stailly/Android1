@@ -13,13 +13,17 @@ import android.widget.Toast;
 
 public class CitiesActivity extends AppCompatActivity {
 
+    private EditText editText;
+    private Switch pressure;
+    private Switch windSpeed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cities);
-        final EditText editText = findViewById(R.id.enter_city);
-        final Switch pressure = findViewById(R.id.showPressure);
-        final Switch windSpeed = findViewById(R.id.showWind);
+        editText = findViewById(R.id.enter_city);
+        pressure = findViewById(R.id.showPressure);
+        windSpeed = findViewById(R.id.showWind);
         findViewById(R.id.buttonAdd).setOnClickListener(new View.OnClickListener() {
                                                             @Override
                                                             public void onClick(View view) {
@@ -72,11 +76,15 @@ public class CitiesActivity extends AppCompatActivity {
         Toast.makeText(this, "App State onDestroy()", Toast.LENGTH_SHORT).show();
         Log.d("App State ", "onDestroy()");
     }
+
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Toast.makeText(this, "App State onSaveInstanceState()", Toast.LENGTH_SHORT).show();
         Log.d("App State ", "onSaveInstanceState()");
+        outState.putBoolean("Pressure", pressure.isChecked());
+        outState.putBoolean("Wind", windSpeed.isChecked());
+        outState.putString("City", editText.getText().toString());
     }
 
     @Override
@@ -84,6 +92,9 @@ public class CitiesActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         Toast.makeText(this, "App State onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
         Log.d("App State ", "onRestoreInstanceState()");
+        pressure.setChecked(savedInstanceState.getBoolean("Pressure"));
+        windSpeed.setChecked(savedInstanceState.getBoolean("Wind"));
+        editText.setText(savedInstanceState.getString("City"));
     }
 
 }
