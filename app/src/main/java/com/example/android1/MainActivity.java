@@ -24,5 +24,11 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getExtras().getBoolean("Wind")) {
             findViewById(R.id.wind_value).setVisibility(View.VISIBLE);
         }
+        findViewById(R.id.home_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
