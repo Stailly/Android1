@@ -2,8 +2,11 @@ package com.example.android1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -15,8 +18,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button gismeteo = findViewById(R.id.gismeteo);
         TextView tv = findViewById(R.id.city);
         tv.setText(Objects.requireNonNull(getIntent().getExtras()).getString("city"));
+
+        gismeteo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.gismeteo.ru/";
+                Uri uri = Uri.parse(url);
+                Intent browser = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(browser);
+            }
+        });
 
         if (getIntent().getExtras().getBoolean("Pressure")) {
             findViewById(R.id.pressure_value).setVisibility(View.VISIBLE);

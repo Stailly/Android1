@@ -38,50 +38,48 @@ public class CitiesActivity extends AppCompatActivity {
                                                         }
 
         );
-        Toast.makeText(this, "App State onCreate()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onCreate()");
+        logMethod("onCreate()");
+    }
+
+    private void logMethod(String s) {
+        Toast.makeText(this, "App State" + s, Toast.LENGTH_SHORT).show();
+        Log.d("App State ", s);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(this, "App State onStart()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onStart()");
+        logMethod("onStart()");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(this, "App State onResume()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onResume()");
+        logMethod("onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(this, "App State onPause()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onPause()");
+        logMethod( "onPause()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(this, "App State onStop()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onStop()");
+        logMethod( "onStop()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Toast.makeText(this, "App State onDestroy()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onDestroy()");
+        logMethod( "onDestroy()");
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        Toast.makeText(this, "App State onSaveInstanceState()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onSaveInstanceState()");
+        logMethod( "onSaveInstanceState()");
         outState.putBoolean("Pressure", pressure.isChecked());
         outState.putBoolean("Wind", windSpeed.isChecked());
         outState.putString("City", editText.getText().toString());
@@ -90,8 +88,7 @@ public class CitiesActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Toast.makeText(this, "App State onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
-        Log.d("App State ", "onRestoreInstanceState()");
+        logMethod("onRestoreInstanceState()");
         pressure.setChecked(savedInstanceState.getBoolean("Pressure"));
         windSpeed.setChecked(savedInstanceState.getBoolean("Wind"));
         editText.setText(savedInstanceState.getString("City"));
