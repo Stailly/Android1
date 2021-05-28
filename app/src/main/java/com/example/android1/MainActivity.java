@@ -1,48 +1,42 @@
 package com.example.android1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentChanger {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        changeFragment("Main", null, true);
+    }
 
-        Button gismeteo = findViewById(R.id.gismeteo);
-        TextView tv = findViewById(R.id.city);
-        tv.setText(Objects.requireNonNull(getIntent().getExtras()).getString("city"));
-
-        gismeteo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String url = "https://www.gismeteo.ru/";
-                Uri uri = Uri.parse(url);
-                Intent browser = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(browser);
+    @Override
+    public void changeFragment(String tag, Bundle args, boolean addToBackStack) {
+        Fragment fragment = FragmentFinder.findFragment(tag, args, getSupportFragmentManager());
+        if (fragment == null) {
+            switch (tag) {
+                case "Weather":
+                    fragment = new WeatherFragment();
+                    break;
+                case "Main":
+                    fragment = new MainPageFragment();
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid tag: " + tag);
             }
-        });
-
-        if (getIntent().getExtras().getBoolean("Pressure")) {
-            findViewById(R.id.pressure_value).setVisibility(View.VISIBLE);
+            fragment.setArguments(args);
         }
-        if (getIntent().getExtras().getBoolean("Wind")) {
-            findViewById(R.id.wind_value).setVisibility(View.VISIBLE);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment);
+        if (addToBackStack) {
+            transaction.addToBackStack("");
         }
-        findViewById(R.id.home_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        transaction.commit();
     }
 }
